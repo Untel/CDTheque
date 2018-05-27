@@ -1,0 +1,13 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if albums %}
+
+    {% for album in albums %}
+
+        <span> {{ album.name }} </span>
+
+    {% endfor %}
+
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}

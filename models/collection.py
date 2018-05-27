@@ -34,22 +34,28 @@ class Collection:
                 SELECT * FROM `album`
             """)
 
-            interpreter = self.db.query("""
-                SELECT * FROM `interpreter`
-            """)
+            # interpreter = self.db.query("""
+            #     SELECT * FROM `interpreter`
+            # """)
 
-            author = self.db.query("""
-                SELECT * FROM `author`
-            """)
+            # author = self.db.query("""
+            #     SELECT * FROM `author`
+            # """)
 
-            composer = self.db.query("""
-                SELECT * FROM `composer`
-            """)
+            # composer = self.db.query("""
+            #     SELECT * FROM `composer`
+            # """)
 
             for album in albums:
-                _album = Album(album[0], album[1], album[2], album[4], album[3]),
-                self.add(album)
+                _album = Album( id = album[0], 
+                                name = album[1], 
+                                title = album[2],
+                                cover = album[3],
+                                track = album[4]
+                                )
+                self.add(_album)
 
+            return self._albums
         except Exception as e:
             print('Err', e)
             return []

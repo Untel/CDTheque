@@ -4,6 +4,7 @@ class ApplicationBasic():
 	'''Application principale'''
 	def __init__(self, collection):
 		'''constructeur'''
+		self.collection = collection
 		self.fen = Tk()
 		self.fen.title('Tkinter')
 		self.bou_action = Button(self.fen)
@@ -13,13 +14,16 @@ class ApplicationBasic():
 		self.bou_quitter = Button(self.fen)
 		self.bou_quitter.config(text='Quitter', command=self.fen.destroy)
 		self.bou_quitter.pack()
-        self.albums = collection.get()
-        for album in self.albums:
-            name = Label(self.fen)
-            name.config(text=album.name)
-            name.pack()
-
+		self.printAlbums()
  
+	def printAlbums(self):
+       		albums = self.collection.retrieve()
+        	for album in albums:
+				print('alb', album)
+				name = Label(self.fen)
+				name.config(text=album.name)
+				name.pack()
+
 	def run(self):
                 self.fen.mainloop()
     

@@ -3,7 +3,6 @@ from models.album import *
 from utils.database import *
 from ui.home import *
 
-
 db = Database()
 
 collection = Collection([])
